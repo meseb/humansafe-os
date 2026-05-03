@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Activity, ShieldAlert, HeartPulse, History, HelpCircle } from 'lucide-react';
+import { Activity, ShieldAlert, HeartPulse, History, HelpCircle, BookOpen } from 'lucide-react';
 
 export default function HomePage() {
   const startTour = () => {
@@ -96,6 +96,22 @@ export default function HomePage() {
                 </div>
                 <CardDescription className="text-base mt-2 text-red-900/80">
                   Un ponte diretto verso il tuo supporto di fiducia in caso di emergenza. La tua privacy è sempre garantita.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/journal" className="tour-step-6 block group md:col-span-2">
+            <Card className="h-full border-indigo-200 transition-all duration-300 hover:shadow-md hover:border-indigo-400 bg-indigo-50/30">
+              <CardHeader>
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-indigo-100 text-indigo-700 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                    <BookOpen className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="text-xl text-indigo-800">Diario di Bordo & AI</CardTitle>
+                </div>
+                <CardDescription className="text-base mt-2 text-indigo-900/80">
+                  Registra i tuoi pensieri e metabolizza i momenti difficili con il nostro assistente empatico. I dati rimangono solo sul tuo dispositivo, pronti se vorrai condividerli con un futuro specialista.
                 </CardDescription>
               </CardHeader>
             </Card>

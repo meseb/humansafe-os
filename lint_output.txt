@@ -1,0 +1,52 @@
+
+> nextjs-temp@0.1.0 lint
+> eslint
+
+
+/home/messoud-sebbahi/humansafe OS/Humansafe-os/src/app/journal/page.tsx
+  23:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/messoud-sebbahi/humansafe OS/Humansafe-os/src/app/journal/page.tsx:23:5
+  21 |   // Load messages from local storage on mount
+  22 |   useEffect(() => {
+> 23 |     setIsClient(true);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |     const saved = localStorage.getItem('humansafe_journal_messages');
+  25 |     if (saved) {
+  26 |       try {  react-hooks/set-state-in-effect
+
+/home/messoud-sebbahi/humansafe OS/Humansafe-os/src/app/page.tsx
+    4:56   warning  'CardContent' is defined but never used                          @typescript-eslint/no-unused-vars
+  132:53   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:101  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  136:20   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/messoud-sebbahi/humansafe OS/Humansafe-os/src/components/modules/AppTour.tsx
+  12:7   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/messoud-sebbahi/humansafe OS/Humansafe-os/src/components/modules/AppTour.tsx:12:7
+  10 |     const hasSeenTour = localStorage.getItem('humansafe-tour-completed');
+  11 |     if (!hasSeenTour) {
+> 12 |       setRun(true);
+     |       ^^^^^^ Avoid calling setState() directly within an effect
+  13 |     }
+  14 |
+  15 |     // Allow triggering from anywhere via a custom event  react-hooks/set-state-in-effect
+  22:40  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-explicit-any
+  62:59  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-explicit-any
+  75:12  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          @typescript-eslint/no-explicit-any
+
+✖ 9 problems (8 errors, 1 warning)
+
